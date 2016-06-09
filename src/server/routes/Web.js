@@ -12,13 +12,13 @@ router.get('/about',  (req, res) => {
   res.send(`
     <html>
     <head>
+    </head>
+    <body>
+      ${render(<App url={req.originalUrl} state={state} />)}
       <script>
         window.__INITIAL_STATE = ${JSON.stringify(state)}
       </script>
       <script src="bundle.js" /></script>
-    </head>
-    <body>
-    ${render(<App url={req.originalUrl} state={state} />)}
     </body>
     </html>
   `)
